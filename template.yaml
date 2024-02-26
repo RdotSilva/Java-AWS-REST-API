@@ -50,6 +50,20 @@ Resources:
             Path: /hello
             Method: get
 
+  ApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: Test API Gateway
+      StageName: Stage
+      OpenApiVersion: '3.0.1'
+      EndpointConfiguration:
+        Type: REGIONAL
+      DefinitionBody:
+        'Fn::Transform':
+          Name: 'AWS::Include'
+          Parameters:
+            Location: docs/openapispec.yaml
+
   ApplicationResourceGroup:
     Type: AWS::ResourceGroups::Group
     Properties:
