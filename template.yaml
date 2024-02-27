@@ -13,6 +13,9 @@ Globals:
     Runtime: java17
     Architectures:
       - x86_64
+    Environment:
+      Variables:
+        REGION: !Ref Region
 
 Parameters:
   Region:
