@@ -15,3 +15,7 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+      x-amazon-apigateway-integration:
+        uri:
+          Fn::Sub: TODO.add.lambda.path
+        httpMethod: GET
