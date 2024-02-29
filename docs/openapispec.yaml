@@ -16,6 +16,12 @@ paths:
         '400':
           description: Invalid status value
       x-amazon-apigateway-integration:
+        type: aws_proxy
+        passThroughBehaviour: when_no_match
+        httpMethod: GET
+        credentials:
+          'Fn::GetAtt':
+            - OpenApiExecutionRole
+            - Arn
         uri:
           Fn::Sub: TODO.add.lambda.path
-        httpMethod: GET
